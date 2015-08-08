@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.skate-life.test"
+        versionCode = "10"
+        version     = "1.0.0" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>Skate Life Front-end Test</name>
+
+    <description>
+        Skate Life Front-end Test Repo
+    </description>
+
+    <author href="https://hdngo.github.io" email="harveydngo@gmail.com">
+        Harvey Ngo
+    </author>
+
+    <!--
+      If you do not want any permissions to be added to your app, add the
+      following tag to your config.xml; you will still have the INTERNET
+      permission on your app, which PhoneGap requires.
+    -->
+    
+    <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <access origin="*"/>
+    <preference name="permissions" value="none"/>
+
+</widget>
