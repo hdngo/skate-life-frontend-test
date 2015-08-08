@@ -1,30 +1,30 @@
 import React from "react"
 import Link from "./Link"
 
+var baseURL = 'https://skate-life-backend.herokuapp.com'
+
 export default React.createClass({
 	initialState: function(){
 		return{
-			index: []
+			skatepark: null
 		}
 	},
 
-	componentDidMount: function(){
-		this.setState({index: this.props.parks})
-	},
+	// componentDidMount: function(){
+	// 	this.setState({index: this.props.parks})
+	// },
 
 	render: function(){
-		console.log("nulllll?")
 		console.log(this.props.parks)
-		console.log('basd')
 		if(this.props.parks){
 			console.log("more parks!")
-			var skateparks = this.props.parks.skateparks
+			var skateparks = this.props.parks
 			console.log(skateparks)
 			return (
 				<ul>
-				{this.props.parks.skateparks.map(function(result) {
-					return <li>
-						<Link url={'api/skateparks/' + result.id} text={result.name} />
+				{this.props.parks.map(function(result) {
+					return <li key={result.id}>
+						<Link key={result.id} url={baseURL + '/api/skateparks/' + result.id} text={result.name} />
 					</li>
 				})}
       	</ul>

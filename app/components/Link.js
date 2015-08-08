@@ -9,9 +9,9 @@ export default React.createClass({
 	},
 
 	goToLink: function(e){
+		console.log(e)
 		e.preventDefault();
 		var path = e.target.href
-		debugger
 		var request = $.ajax({
 			url: path,
 			method: 'get',

@@ -3,18 +3,16 @@ import List from "./List";
 
 export default React.createClass({
 	
-	getIntitialState: function(){
+	getInitialState: function(){
 		return {
-			message: "yeee"
+			skateparks: []
 		}
 	},
 
 	justDoIt: function(e) {
 		e.preventDefault();
-		$('.greeting').toggle();
 		console.log("just do ittt");
-		var local = this;
-		var path = "http://localhost:3000/api/skateparks"
+		var path = "https://skate-life-backend.herokuapp.com/api/skateparks"
 		var request = $.ajax({
 			url: path,
 			method: 'get',
@@ -35,16 +33,17 @@ export default React.createClass({
 
 
   render: function() {
-
+  	if(this.state.skateparks.length === 0){
+  		console.log("i'm empty on the inside")
+  		var Content = <button onClick={this.justDoIt} >Login</button>
+  	}
+  	else{
+  		console.log("fullllll")
+  		var Content = <List parks={this.state.skateparks} />
+  	}
     return (
     	<div>
-      	<div className="greeting">
-	        Hello, {this.props.name}!
-	        "MAAAAANNnn, you wuz wid that -"
-	        <br />
-	        <button onClick={this.justDoIt} >Login</button>
-	        </div>
-	        <List parks={this.state} />
+    		{Content}
       </div>
     );
 
